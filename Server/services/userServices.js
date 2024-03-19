@@ -1,7 +1,7 @@
 const User = require('../model/User');
 const jwt = require('../lib/jwt');
 const { SECRET } = require('../environment/variables');
-
+const bcrypt = require('bcrypt');
 
 exports.register = async (userData) => {
     try {
@@ -30,6 +30,34 @@ exports.register = async (userData) => {
 };
 
 
+exports.login = async (userData) => {
+
+    try {
+        const user = User.findOne({ email: userData.email });
+
+        if (!user) {
+            throw new Error('Email or password doesn\'t match');
+        }
+
+        const isValid = await bcrypt.compare(userData.password, user.password);
+
+        if (!isValid) {
+            throw new Error('Email or password doesn\'t match');
+        }
+
+        const userToken = getUserToken(user)
+
+        return {
+            id: user._id,
+            accessToken: userToken,
+            username: user.username,
+            email: user.email,
+        }
+    } catch (error) {
+        throw new Error('An error occurred during login.');
+    }
+};
+
 function getUserToken(user) {
     return jwt.sign({ id: user._id, email: user.email, username: user.username }, SECRET);
-}
+};
