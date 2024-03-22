@@ -1,0 +1,29 @@
+<div class="form-box">
+    <h1>Register</h1>
+    <form>
+        <div class="input-group">
+            <div class="input-field">
+                <i class="fa-sharp fa-solid fa-user"></i>
+                <input type="text" placeholder="name">
+            </div>
+            <div class="input-field">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" placeholder="email">
+            </div>
+            <div class="input-field">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" placeholder="password">
+            </div>
+            <div *ngIf="isDoctorChecked" class="input-field">
+                <i class="fa-solid fa-briefcase"></i>
+                <input type="proficiency" placeholder="proficiency">
+            </div>
+        </div>
+        <p>Register as a doctor
+            <input type="checkbox" id="doctor" (change)="toogleDoctorField($event)"></p>
+        <p>Already have an account?<a href="/login">Sign In!</a></p>
+        <div class="btn-field">
+            <button type="button">Sign Up</button>
+        </div>
+    </form>
+</div>
