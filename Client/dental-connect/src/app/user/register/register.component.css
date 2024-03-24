@@ -21,18 +21,6 @@
     position: relative;
 }
 
-.form-box h1 ::after {
-    content: '';
-    width: 30px;
-    height: 4px;
-    border-radius: 3px;
-    background-color: #3c00a0;
-    position: absolute;
-    bottom: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
 .input-field {
     background: #eaeaea;
     margin: 15px 0;
