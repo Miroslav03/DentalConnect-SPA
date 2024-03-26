@@ -31,8 +31,10 @@
 .about-us h2 {
     font-size: 45px;
     margin-bottom: 20px;
-    color: #2e2e2e
+    color: #07acef;
+    filter: drop-shadow(0 0 0px white)
 }
+
 
 .about-us h3 {
     font-size: 22px;
@@ -43,28 +45,30 @@
 .about-us p {
     font-size: 18px;
     line-height: 1.5;
-    color: #333;
+    color: white;
     margin-bottom: 20px;
     font-family: "Montserrat", sans-serif;
 }
+
 
 .about-us img {
     display: block;
     max-width: 100%;
     height: auto;
     margin: 0 auto;
+    filter: drop-shadow(0 0 25px white)
 }
 
 .btn {
     text-decoration: none;
-    color: #fff;
+    color: #081c29;
     display: inline-block;
     padding: 10px 20px;
     font-size: 18px;
     font-weight: bold;
     text-transform: uppercase;
     border-radius: 5px;
-    background-color: #2e2e2e;
+    background-color: #00adf4;
     transition: all 0.4s ease;
 }
 
@@ -72,20 +76,24 @@
     transform: translateY(-3px);
 }
 
-@media screen and(max-width: 768px){
-    .row{
+@media screen and(max-width: 768px) {
+    .row {
         flex-direction: column;
     }
-    .flex{
+
+    .flex {
         max-width: 100%;
     }
+
     .about-us h2 {
         font-size: 31px;
     }
-    .about-us p{
+
+    .about-us p {
         font-size: 16px;
     }
-    .btn{
+
+    .btn {
         font-size: 16px;
         padding: 8px 16px;
         margin-bottom: 30px;

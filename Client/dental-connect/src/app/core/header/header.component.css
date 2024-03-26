@@ -4,7 +4,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0%;
-    background-color: #24252A;
+    background-color:#081c29;
 }
 
 li,
@@ -42,13 +42,13 @@ header {
 }
 
 .nav_links li a:hover {
-    color: rgb(82, 206, 237);
+    color: #00adf4;
 }
 
 
 button {
     padding: 9px 25px;
-    background-color: rgb(82, 206, 237);
+    background-color: #00adf4;
     border: none;
     border-radius: 50px;
     cursor: pointer;

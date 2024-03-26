@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500');
+@import url('https://fonts.googleapis.com/css2? family=Poppins: wght@300;400;500;600;700; 800; 900& display=swap');
+
+
+.content {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+}
+
+.content {
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+.content h1 {
+    color: transparent;
+    -webkit-text-stroke: 1px transparent;
+    font-size: 5rem;
+    position: relative;
+}
+
+.content h1::before {
+    content: 'Welcome to Dental Connect';
+    position: absolute;
+    overflow: hidden;
+    color: white;
+    transition: 1s ease-in-out;
+}
+
+.content :hover::before {
+    filter: drop-shadow(0 0 25px #00adf4)
+}
+
+
+.content p {
+    color: #06abf8;
+    filter: drop-shadow(0 0 15px #ffffff)
+
+}
