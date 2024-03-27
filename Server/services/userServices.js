@@ -1,5 +1,4 @@
 const User = require('../model/User');
-const { SECRET } = require('../environment/variables');
 const bcrypt = require('bcrypt');
 const { getUserToken } = require('../utils/jwt');
 const { getErrors } = require('../utils/errors');
