@@ -2,16 +2,27 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AllServicesComponent } from './all-services/all-services.component';
 import { ServicesRoutingModule } from './services-routing.module';
+import { SearchServicesComponent } from './search-services/search-services.component';
+import { DetailsServiceComponent } from './details-service/details-service.component';
+import { CreateServiceComponent } from './create-service/create-service.component';
+import { EditServiceComponent } from './edit-service/edit-service.component';
 
 
 
 @NgModule({
   declarations: [
-    AllServicesComponent
+    AllServicesComponent,
+    SearchServicesComponent,
+    DetailsServiceComponent,
+    CreateServiceComponent,
+    EditServiceComponent
   ],
   imports: [
     CommonModule,
     ServicesRoutingModule
+  ],
+  exports:[
+    AllServicesComponent
   ]
 })
 export class ServicesModule { }

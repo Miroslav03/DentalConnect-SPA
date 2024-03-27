@@ -76,3 +76,12 @@ form p a {
 #doctor-text {
     color: white
 }
+
+.btn-field button:hover {
+    letter-spacing: 0.5px;
+
+}
+
+.btn-field button:hover {
+    box-shadow: 0 10px 15px rgb(255, 255, 255);
+}
