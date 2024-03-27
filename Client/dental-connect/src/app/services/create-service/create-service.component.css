@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500');
+
+.form-box {
+    width: 90%;
+    max-width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #081c29;
+    padding: 50px 60px 70px;
+    text-align: center;
+    border-radius: 10px;
+    filter: drop-shadow(0 0 25px white);
+
+}
+
+.form-box h1 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 30px;
+    margin-bottom: 40px;
+    color: white;
+    position: relative;
+    filter: drop-shadow(0 0 15px white);
+
+}
+
+.input-field {
+    background: #00adf4;
+    margin: 15px 0;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+}
+
+input {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    padding: 18px 15px;
+}
+
+.input-field i {
+    margin-left: 15px;
+    color: #ffffff;
+}
+
+form p {
+    text-align: center;
+    font-size: 13px;
+    color: #00adf4;
+    font-family: "Montserrat", sans-serif;
+}
+
+form p a {
+    text-decoration: none;
+    color: white;
+    padding: 7px;
+}
+
+.btn-field button {
+    flex-basis: 48%;
+    background-color: white;
+    color: #081c29;
+    height: 30px;
+    width: 80px;
+    border-radius: 20px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+    font-size: 11px;
+}
+
+#doctor-text {
+    color: white
+}
+
+.btn-field button:hover {
+    letter-spacing: 0.5px;
+
+}
+
+.btn-field button:hover {
+    box-shadow: 0 10px 15px rgb(255, 255, 255);
+}
