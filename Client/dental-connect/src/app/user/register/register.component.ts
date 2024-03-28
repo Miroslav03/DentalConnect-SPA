@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../user-service.service';
 import { matchPasswordsValidator } from 'src/app/shared/utils';
+import { pattern } from 'src/app/shared/variables';
 
 @Component({
   selector: 'app-register',
@@ -19,7 +20,7 @@ export class RegisterComponent {
 
   form = this.fb.group({
     username: ['', [Validators.required, Validators.minLength(5)]],
-    email: ['', [Validators.required, Validators.pattern('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$')]],
+    email: ['', [Validators.required, Validators.pattern(pattern)]],
     passGroup: this.fb.group(
       {
         password: ['', [Validators.required, Validators.minLength(6)]],

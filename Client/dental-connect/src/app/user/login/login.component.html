@@ -1,19 +1,35 @@
 <div class="form-box">
     <h1>Login</h1>
-    <form>
+    <form [formGroup]="form" (ngSubmit)="login()">
         <div class="input-group">
             <div class="input-field">
                 <i class="fa-solid fa-envelope"></i>
-                <input type="email" placeholder="email">
+                <input type="email" placeholder="email" formControlName="email">
             </div>
+            <ng-container *ngIf="form.get('email')?.touched">
+                <p class="error" *ngIf="form.get('email')?.errors?.['required']">
+                    Email is required!
+                </p>
+                <p class="error" *ngIf="form.get('email')?.errors?.['pattern']">
+                    Email is invalid!
+                </p>
+            </ng-container>
             <div class="input-field">
                 <i class="fa-solid fa-lock"></i>
-                <input type="password" placeholder="password">
+                <input type="password" placeholder="password" formControlName="password">
             </div>
+            <ng-container *ngIf="form.get('password')?.touched">
+                <p class="error" *ngIf="form.get('password')?.errors?.['required']">
+                    Password is required!
+                </p>
+                <p class="error" *ngIf="form.get('password')?.errors?.['minlength']">
+                    Password must be at least 5 characters!
+                </p>
+            </ng-container>
         </div>
-        <p>Don't have an account?<a routerLink="/register">Click here!</a></p>
+        <p>Don't have an account?<a routerLink="/user/register">Click here!</a></p>
         <div class="btn-field">
-            <button type="button">Sign In</button>
+            <button type="submit">Sign In</button>
         </div>
     </form>
 </div>
