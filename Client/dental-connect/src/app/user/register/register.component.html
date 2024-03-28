@@ -1,29 +1,73 @@
 <div class="form-box">
     <h1>Register</h1>
-    <form>
+    <form [formGroup]="form" (ngSubmit)="register()">
         <div class="input-group">
             <div class="input-field">
                 <i class="fa-sharp fa-solid fa-user"></i>
-                <input type="text" placeholder="username">
+                <input type="text" placeholder="username" class="input-error" formControlName="username">
             </div>
+            <ng-container *ngIf="form.get('username')?.touched">
+                <p class="error" *ngIf="form.get('username')?.errors?.['required']">
+                    Username is required!
+                </p>
+                <p class="error" *ngIf="form.get('username')?.errors?.['minlength']">
+                    Username must be at least 5 characters!
+                </p>
+            </ng-container>
             <div class="input-field">
                 <i class="fa-solid fa-envelope"></i>
-                <input type="email" placeholder="email">
+                <input type="email" placeholder="email" class="input-error"  formControlName="email">
             </div>
-            <div class="input-field">
-                <i class="fa-solid fa-lock"></i>
-                <input type="password" placeholder="password">
-            </div>
+            <ng-container *ngIf="form.get('email')?.touched">
+                <p class="error" *ngIf="form.get('email')?.errors?.['required']">
+                    Email is required!
+                </p>
+                <p class="error" *ngIf="form.get('email')?.errors?.['pattern']">
+                    Email is invalid!
+                </p>
+            </ng-container>
+            <ng-container formGroupName="passGroup">
+                <div class="input-field">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="password" formControlName="password">
+                </div>
+                <ng-container *ngIf="form.get('passGroup')?.get('password')?.touched">
+                    <p class="error" *ngIf="form.get('passGroup')?.get('password')?.errors?.['required']">Password is
+                        required!</p>
+                    <p class="error" *ngIf="form.get('passGroup')?.get('password')?.errors?.['minlength']">Password must
+                        be at least 5 characters!</p>
+                </ng-container>
+                <div class="input-field">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="RePassword" formControlName="rePass">
+                </div>
+                <ng-container *ngIf="form.get('passGroup')?.get('rePass')?.touched">
+                    <p class="error" *ngIf="form.get('passGroup')?.get('rePass')?.errors?.['required']">Repeat
+                        Repeat Password is
+                        required!</p>
+                    <p class="error" *ngIf="form.get('passGroup')?.errors?.['matchPasswordsValidator']">Repeat
+                        Password does not match password!</p>
+                </ng-container>
+            </ng-container>
             <div *ngIf="isDoctorChecked" class="input-field">
                 <i class="fa-solid fa-briefcase"></i>
-                <input type="proficiency" placeholder="proficiency">
+                <input type="proficiency" placeholder="proficiency" formControlName="proficiency">
             </div>
+            <ng-container *ngIf="form.get('proficiency')?.touched">
+                <p class="error" *ngIf="form.get('proficiency')?.errors?.['required']">
+                    Proficiency is required!
+                </p>
+                <p class="error" *ngIf="form.get('proficiency')?.errors?.['minlength']">
+                    Proficiency must be at least 5 characters!
+                </p>
+            </ng-container>
         </div>
         <p id="doctor-text">Register as a doctor?
-            <input id="doctor-input" type="checkbox" id="doctor" (change)="toogleDoctorField($event)"></p>
+            <input id="doctor-input" type="checkbox" id="doctor" (change)="toogleDoctorField($event)">
+        </p>
         <p>Already have an account?<a routerLink="/login">Sign In!</a></p>
         <div class="btn-field">
-            <button type="button">Sign Up</button>
+            <button type="submit">Sign Up</button>
         </div>
     </form>
 </div>
