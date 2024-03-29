@@ -5,7 +5,7 @@ const { getErrors } = require('../utils/errors');
 
 exports.register = async (userData) => {
     try {
-        const user = User.create(userData);
+        const user = await User.create(userData);
         const userToken = await getUserToken(user);
 
         return {
@@ -23,7 +23,7 @@ exports.register = async (userData) => {
 exports.login = async (userData) => {
 
     try {
-        const user = User.findOne({ email: userData.email });
+        const user = await User.findOne({ email: userData.email });
 
         if (!user) {
             throw new Error('Email or password doesn\'t match');
@@ -35,7 +35,7 @@ exports.login = async (userData) => {
             throw new Error('Email or password doesn\'t match');
         }
 
-        const userToken = getUserToken(user);
+        const userToken = await getUserToken(user);
 
         return {
             id: user._id,

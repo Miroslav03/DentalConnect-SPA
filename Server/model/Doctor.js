@@ -20,14 +20,14 @@ const doctorSchema = new mongoose.Schema({
         type: String,
         requried: true
     },
-    patients:[{
+    patients: [{
         type: mongoose.Types.ObjectId,
         ref: 'User',
     }]
 });
 
-doctorSchema.pre('save', function () {
-    const hash = bcrypt.hash(this.password, 12);
+doctorSchema.pre('save', async function () {
+    const hash = await bcrypt.hash(this.password, 12);
     this.password = hash;
 })
 

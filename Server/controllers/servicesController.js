@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { isDoctor } = require('../middlewares/authMiddleware');
 const servicesServices = require('../services/servicesServices');
 
 router.get('/all', async (req, res) => {
