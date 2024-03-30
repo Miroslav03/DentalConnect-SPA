@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const config = require('./config/config');
+const cookieParser = require('cookie-parser');
 
 const routes = require('./routes');
 const { auth } = require('./middlewares/authMiddleware');
@@ -9,10 +10,12 @@ const { auth } = require('./middlewares/authMiddleware');
 const PORT = 3000;
 const app = express();
 
+app.use(cookieParser());
 app.use(cors({
     origin: config.origin,
     credentials: true
 }));
+
 app.use(express.json());
 
 app.use(routes)

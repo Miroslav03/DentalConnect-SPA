@@ -13,7 +13,6 @@ router.post('/register', async (req, res) => {
         } else {
             res.cookie('authToken', doctor.accessToken, { httpOnly: true, sameSite: 'None', secure: true })
         }
-        console.log('Response headers:', res.getHeaders()); // Log headers
         res.status(200).json(doctor);
 
     } catch (error) {

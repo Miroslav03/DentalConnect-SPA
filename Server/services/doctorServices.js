@@ -5,8 +5,7 @@ const { getDoctorToken } = require('../utils/jwt');
 
 exports.register = async (doctorData) => {
     try {
-        const doctor = Doctor.create(doctorData);
-
+        const doctor = await Doctor.create(doctorData);
         const doctorToken = await getDoctorToken(doctor);
 
         return {
@@ -47,3 +46,7 @@ exports.login = async (doctorData) => {
         throw new Error('An error occurred during login.');
     }
 };
+
+exports.getDoctorById = async (doctorId) => {
+    return await Doctor.findById(doctorId).select('-password')
+}

@@ -9,12 +9,12 @@ router.post('/register', async (req, res) => {
         const user = await userService.register({ username, email, password });
 
         if (process.env.NODE_ENV === 'production') {
-            res.cookie('accessToken', user.accessToken, { httpOnly: true, sameSite: 'none', secure: true })
+            res.cookie('authToken', user.accessToken, { httpOnly: true, sameSite: 'None', secure: true })
         } else {
-            res.cookie('accessToken', user.accessToken, { httpOnly: true })
+            res.cookie('authToken', user.accessToken, { httpOnly: true, sameSite: 'None', secure: true })
         }
-
         res.status(200).json(user);
+
 
     } catch (error) {
         res.status(500).json({ error: 'An error occurred during user registration' });
