@@ -26,7 +26,7 @@ exports.login = async (userData) => {
         const user = await User.findOne({ email: userData.email });
 
         if (!user) {
-            throw new Error('Email or password doesn\'t match');
+            return null;
         }
 
         const isValid = await bcrypt.compare(userData.password, user.password);
@@ -44,6 +44,7 @@ exports.login = async (userData) => {
             email: user.email,
         }
     } catch (error) {
+        console.error(error.message)
         throw new Error('An error occurred during login.');
     }
 };

@@ -21,27 +21,6 @@ router.post('/register', async (req, res) => {
     }
 });
 
-router.post('/login', async (req, res) => {
-    try {
-        const { email, password } = req.body;
 
-        const doctor = await userService.login({ email, password });
-
-        if (!doctor) {
-            res.status(401).json({ error: 'Email or password is invalid' })
-        }
-
-        if (process.env.NODE_ENV === 'production') {
-            res.cookie('accessToken', user.accessToken, { httpOnly: true, sameSite: 'none', secure: true })
-        } else {
-            res.cookie('accessToken', user.accessToken, { httpOnly: true })
-        }
-        res.status(200).json(doctor);
-
-    } catch (error) {
-        res.status(500).json({ error: 'An error occurred during user login' });
-    }
-
-});
 
 module.exports = router;

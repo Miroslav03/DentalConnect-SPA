@@ -27,8 +27,7 @@ export class UserService implements OnDestroy {
     if (this.user) {
       userType = 'proficiency' in this.user ? 'doctor' : 'user';
     }
-    console.log(userType);
-    
+
     return {
       isLoggedIn: loggedIn,
       userType: userType
@@ -40,15 +39,20 @@ export class UserService implements OnDestroy {
     return this.http.get<UserType | DoctorType>('http://localhost:3000/auth/common/profile', { withCredentials: true }).pipe(tap((user) => this.user$$.next(user)));
   }
 
+  login(email: string, password: string) {
+    return this.http.post<UserType | DoctorType>('http://localhost:3000/auth/common/login', { email, password }, { withCredentials: true }).pipe(tap((user) => this.user$$.next(user)))
+  }
+
+  logout() {
+    return this.http.get('http://localhost:3000/auth/common/logout', { withCredentials: true }).pipe(tap(() => { this.user$$.next(null) }))
+  }
+
   registerDoctor(username: string, email: string, proficiency: string, password: string) {
     return this.http.post<DoctorType>('http://localhost:3000/auth/doctor/register', { username, email, proficiency, password }, { withCredentials: true }).pipe(tap((user) => this.user$$.next(user)))
   }
 
   registerUser(username: string, email: string, password: string) {
-    return this.http.post<UserType>('http://localhost:3000/auth/user/register', { username, email, password }, { withCredentials: true }).pipe(tap((user) => {
-      console.log(user);
-      this.user$$.next(user)
-    }))
+    return this.http.post<UserType>('http://localhost:3000/auth/user/register', { username, email, password }, { withCredentials: true }).pipe(tap((user) => { this.user$$.next(user) }))
   }
 
 

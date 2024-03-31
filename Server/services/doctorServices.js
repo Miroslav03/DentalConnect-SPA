@@ -1,6 +1,7 @@
 const Doctor = require('../model/Doctor');
 const { getErrors } = require('../utils/errors');
 const { getDoctorToken } = require('../utils/jwt');
+const bcrypt = require('bcrypt');
 
 
 exports.register = async (doctorData) => {
@@ -22,10 +23,10 @@ exports.register = async (doctorData) => {
 
 exports.login = async (doctorData) => {
     try {
-        const doctor = Doctor.findOne({ email: doctorData.email });
+        const doctor = await Doctor.findOne({ email: doctorData.email });
 
         if (!doctor) {
-            throw new Error('Email or password doesn\'t match');
+            return null;
         }
 
         const isValid = await bcrypt.compare(doctorData.password, doctor.password);
@@ -34,15 +35,17 @@ exports.login = async (doctorData) => {
             throw new Error('Email or password doesn\'t match');
         }
 
-        const doctorToken = getDoctorToken(doctor);
+        const doctorToken = await getDoctorToken(doctor);
 
         return {
             id: doctor._id,
             accessToken: doctorToken,
             username: doctor.username,
             email: doctor.email,
+            proficiency: doctor.proficiency
         }
     } catch (error) {
+        console.error(error.message)
         throw new Error('An error occurred during login.');
     }
 };
