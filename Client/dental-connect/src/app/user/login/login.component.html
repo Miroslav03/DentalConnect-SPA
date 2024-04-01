@@ -10,9 +10,6 @@
                 <p class="error" *ngIf="form.get('email')?.errors?.['required']">
                     Email is required!
                 </p>
-                <p class="error" *ngIf="form.get('email')?.errors?.['pattern']">
-                    Email is invalid!
-                </p>
             </ng-container>
             <div class="input-field">
                 <i class="fa-solid fa-lock"></i>
@@ -22,10 +19,10 @@
                 <p class="error" *ngIf="form.get('password')?.errors?.['required']">
                     Password is required!
                 </p>
-                <p class="error" *ngIf="form.get('password')?.errors?.['minlength']">
-                    Password must be at least 5 characters!
-                </p>
             </ng-container>
+            <ng-container *ngIf="form.errors?.['loginError']">
+                <p class="error">{{ form.errors?.['loginError'] }}</p>
+              </ng-container>
         </div>
         <p>Don't have an account?<a routerLink="/user/register">Click here!</a></p>
         <div class="btn-field">

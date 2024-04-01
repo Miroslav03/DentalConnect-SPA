@@ -42,7 +42,7 @@ export class RegisterComponent {
     const proficiencyControl = this.form.get('proficiency');
 
     if (this.isDoctorChecked) {
-      if (!usernameControl?.valid || !emailControl?.valid || !passwordControl?.valid || !rePassControl?.valid || !proficiencyControl?.valid) {
+      if (!usernameControl?.valid || !emailControl?.valid || !passwordControl?.valid || !rePassControl?.valid || !proficiencyControl?.valid || rePassControl.value !== passwordControl.value) {
         return;
       }
 
@@ -53,7 +53,7 @@ export class RegisterComponent {
       });
 
     } else {
-      if (!usernameControl?.valid || !emailControl?.valid || !passwordControl?.valid || !rePassControl?.valid) {
+      if (!usernameControl?.valid || !emailControl?.valid || !passwordControl?.valid || !rePassControl?.valid || rePassControl.value !== passwordControl.value) {
         return;
       }
 

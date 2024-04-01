@@ -13,8 +13,8 @@ export class LoginComponent {
   constructor(private fb: FormBuilder, private userService: UserService, private router: Router) { }
 
   form = this.fb.group({
-    email: ['', [Validators.required, Validators.pattern(pattern)]],
-    password: ['', [Validators.required, Validators.minLength(5)]]
+    email: ['', [Validators.required,]],
+    password: ['', [Validators.required,]]
   });
 
 
@@ -27,6 +27,11 @@ export class LoginComponent {
 
     this.userService.login(email!, password!).subscribe(() => {
       this.router.navigate(['/services/all']);
-    })
+    },
+      (error) => {
+        this.form.setErrors({
+          'loginError':'Invalid email or password.'
+        })
+      })
   }
 }
