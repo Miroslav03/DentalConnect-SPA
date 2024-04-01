@@ -17,7 +17,7 @@ export class AllServicesComponent implements OnInit {
 
   ngOnInit(): void {
     this.servicesService.getAll().subscribe((services) => {
-      this.services = services
+      this.services = services;
     })
   }
 }

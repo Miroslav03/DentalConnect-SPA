@@ -1,6 +1,5 @@
 import { HttpClient } from "@angular/common/http";
-import { Injectable, OnDestroy } from "@angular/core";
-import { BehaviorSubject, Subscription, tap } from "rxjs";
+import { Injectable } from "@angular/core";
 import { Services } from "../types/serviceTypes";
 
 
@@ -9,34 +8,21 @@ import { Services } from "../types/serviceTypes";
     providedIn: 'root'
 })
 
-export class ServicesService implements OnDestroy {
+export class ServicesService {
 
-    private services$$ = new BehaviorSubject<Services[]>([]);
-    private services$ = this.services$$.asObservable();
 
-    services: Services[] = [];
-
-    serviceSubscribtion: Subscription;
-
-    constructor(private http: HttpClient) {
-        this.serviceSubscribtion = this.services$.subscribe((services) => {
-            this.services = services;
-        })
-    }
+    constructor(private http: HttpClient) { }
 
     createService(name: string, description: string, price: number, duration: number, imgURL: string) {
         return this.http.post('http://localhost:3000/services/create', { name, description, price, duration, imgURL }, { withCredentials: true });
     }
 
     getAll() {
-        return this.http.get<Services[]>('http://localhost:3000/services/all', { withCredentials: true }).pipe(tap((services) => {
-            this.services$$.next(services);
-        }));
+        return this.http.get<Services[]>('http://localhost:3000/services/all', { withCredentials: true })
     }
 
-
-    ngOnDestroy(): void {
-        this.serviceSubscribtion.unsubscribe();
+    getOne(serviceId: string) {
+        return this.http.get<Services>(`http://localhost:3000/services/${serviceId}`, { withCredentials: true });
     }
 
 }

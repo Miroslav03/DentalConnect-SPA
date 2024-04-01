@@ -8,6 +8,6 @@
             <p>{{ (service.description.length > 50) ? (service.description | slice:0:20) + '...' :
                 (service.description)}}
             </p>
-            <a href="" class="btn">Read More</a>
+            <a [routerLink]="['/services/details', service._id]"  class="btn">Read More</a>
         </div>
     </div>

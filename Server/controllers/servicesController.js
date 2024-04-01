@@ -4,7 +4,7 @@ const servicesServices = require('../services/servicesServices');
 
 router.get('/all', async (req, res) => {
     try {
-        const services = await servicesServices.getAll();
+        const services = await servicesServices.getAll().lean();
         res.status(200).json(services);
     } catch (error) {
         res.status(500).json({ message: 'Server Error' });
@@ -37,8 +37,7 @@ router.post('/create', isDoctor, async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        const serviceId = req.params._id;
-
+        const serviceId = req.params.id;
         const service = await servicesServices.getOne(serviceId);
         res.status(200).json(service);
     } catch (error) {

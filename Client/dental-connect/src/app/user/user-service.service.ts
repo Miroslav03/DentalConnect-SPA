@@ -20,7 +20,7 @@ export class UserService implements OnDestroy {
     })
   }
 
-  isLoggedIn(): { isLoggedIn: boolean, userType?: string } {
+  isLoggedIn(): { isLoggedIn: boolean, userType?: string, user: DoctorType | UserType | null } {
     const loggedIn = !!this.user;
     let userType: string | undefined;
 
@@ -30,7 +30,8 @@ export class UserService implements OnDestroy {
 
     return {
       isLoggedIn: loggedIn,
-      userType: userType
+      userType: userType,
+      user: this.user
     };
   }
 
