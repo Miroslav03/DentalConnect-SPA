@@ -14,7 +14,7 @@ const routes: Routes = [
             { path: 'search', component: SearchServicesComponent },
             { path: 'create', component: CreateServiceComponent },
             { path: 'details/:id', component: DetailsServiceComponent },
-            { path: 'edit', component: EditServiceComponent },
+            { path: 'edit/:id', component: EditServiceComponent },
         ]
     }
 ]

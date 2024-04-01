@@ -9,7 +9,7 @@ exports.register = async (userData) => {
         const userToken = await getUserToken(user);
 
         return {
-            id: user._id,
+            _id: user._id,
             accessToken: userToken,
             username: user.username,
             email: user.email,
@@ -38,7 +38,7 @@ exports.login = async (userData) => {
         const userToken = await getUserToken(user);
 
         return {
-            id: user._id,
+            _id: user._id,
             accessToken: userToken,
             username: user.username,
             email: user.email,

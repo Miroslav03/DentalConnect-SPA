@@ -58,7 +58,7 @@ router.delete('/:id', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
     try {
-        const serviceId = req.params._id;
+        const serviceId = req.params.id;
         const newServiceData = req.body;
 
         await servicesServices.edit(serviceId, newServiceData);

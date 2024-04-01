@@ -34,7 +34,7 @@ export class DetailsServiceComponent implements OnInit {
 
   get isOwner(): boolean | undefined {
     if (this.userService.isLoggedIn().userType === 'doctor') {
-      return this.userService.isLoggedIn().user?.id === this.service?.owner.id;
+      return this.userService.isLoggedIn().user?._id === this.service?.owner._id;
     } else {
       return undefined;
     }

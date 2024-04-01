@@ -25,4 +25,7 @@ export class ServicesService {
         return this.http.get<Services>(`http://localhost:3000/services/${serviceId}`, { withCredentials: true });
     }
 
+    editService(name: string, description: string, price: number, duration: number, imgURL: string, serviceId: string) {
+        return this.http.put(`http://localhost:3000/services/${serviceId}`, { name, description, price, duration, imgURL }, { withCredentials: true });
+    }
 }

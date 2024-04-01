@@ -1,26 +1,70 @@
 <div class="form-box">
     <h1>Edit Service</h1>
-    <form>
+    <form [formGroup]="form" (ngSubmit)="edit()">
         <div class="input-group">
             <div class="input-field">
                 <i class="fa-solid fa-font"></i>
-                <input type="text" placeholder="name">
+                <input type="text" placeholder="name" formControlName="name">
             </div>
+            <ng-container *ngIf="form.get('name')?.touched">
+                <p class="error" *ngIf="form.get('name')?.errors?.['required']">
+                    Service name is required!
+                </p>
+                <p class="error" *ngIf="form.get('name')?.errors?.['minlength']">
+                    Service name must be at least 5 characters!
+                </p>
+            </ng-container>
             <div class="input-field">
                 <i class="fa-solid fa-comment"></i>
-                <input type="text" placeholder="description">
+                <input type="text" placeholder="description" formControlName="description">
             </div>
+            <ng-container *ngIf="form.get('description')?.touched">
+                <p class="error" *ngIf="form.get('description')?.errors?.['required']">
+                    Description is required!
+                </p>
+                <p class="error" *ngIf="form.get('description')?.errors?.['minlength']">
+                    Description must be at least 10 characters!
+                </p>
+            </ng-container>
             <div class="input-field">
                 <i class="fa-solid fa-money-bill"></i>
-                <input type="text" placeholder="price">
+                <input type="text" placeholder="price" formControlName="price">
             </div>
+            <ng-container *ngIf="form.get('price')?.touched">
+                <p class="error" *ngIf="form.get('price')?.errors?.['required']">
+                    Price is required!
+                </p>
+                <p class="error" *ngIf="form.get('price')?.errors?.['pattern']">
+                    Price must be a number!
+                </p>
+            </ng-container>
             <div class="input-field">
                 <i class="fa-solid fa-hourglass"></i>
-                <input type="text" placeholder="duration">
+                <input type="text" placeholder="duration" formControlName="duration">
             </div>
+            <ng-container *ngIf="form.get('duration')?.touched">
+                <p class="error" *ngIf="form.get('duration')?.errors?.['required']">
+                    Duration is required!
+                </p>
+                <p class="error" *ngIf="form.get('duration')?.errors?.['pattern']">
+                    Duration must be a number!
+                </p>
+            </ng-container>
+            <div class="input-field">
+                <i class="fa-solid fa-hourglass"></i>
+                <input type="text" placeholder="imgURL" formControlName="imgURL">
+            </div>
+            <ng-container *ngIf="form.get('imgURL')?.touched">
+                <p class="error" *ngIf="form.get('imgURL')?.errors?.['required']">
+                    imgURL is required!
+                </p>
+                <p class="error" *ngIf="form.get('imgURL')?.errors?.['pattern']">
+                    imgURL must start with https:// or http://!
+                </p>
+            </ng-container>
         </div>
         <div class="btn-field">
-            <button type="button">Edit</button>
+            <button type="submit">Edit</button>
         </div>
     </form>
 </div>

@@ -10,7 +10,7 @@ exports.register = async (doctorData) => {
         const doctorToken = await getDoctorToken(doctor);
 
         return {
-            id: doctor._id,
+            _id: doctor._id,
             accessToken: doctorToken,
             username: doctor.username,
             email: doctor.email,
@@ -38,7 +38,7 @@ exports.login = async (doctorData) => {
         const doctorToken = await getDoctorToken(doctor);
 
         return {
-            id: doctor._id,
+            _id: doctor._id,
             accessToken: doctorToken,
             username: doctor.username,
             email: doctor.email,

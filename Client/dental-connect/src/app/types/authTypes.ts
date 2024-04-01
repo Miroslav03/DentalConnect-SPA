@@ -1,5 +1,5 @@
 export interface UserType {
-    id: string;
+    _id: string;
     accessToken:string
     username: string;
     email: string;
@@ -7,7 +7,7 @@ export interface UserType {
 
 
 export interface DoctorType {
-    id: string;
+    _id: string;
     accessToken: string;
     username: string;
     email: string;

@@ -30,7 +30,7 @@
     <div class="recommend">
     </div>
     <div class="action">
-      <button type="button" *ngIf="isDoctor && isOwner">Edit</button>
+      <button type="button" *ngIf="isDoctor && isOwner" [routerLink]="['/services/edit', service?._id]">Edit</button>
       <button type="button" *ngIf="isDoctor  && isOwner">Delete</button>
       <button type="button" *ngIf="isUser">Buy</button>
     </div>
