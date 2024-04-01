@@ -17,8 +17,10 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
   imports: [
     BrowserModule,
     CoreModule,
+
     UserModule,
     ServicesModule,
+    
     HttpClientModule,
     AppRoutingModule,
   ],

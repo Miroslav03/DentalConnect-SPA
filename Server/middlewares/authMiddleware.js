@@ -17,18 +17,19 @@ exports.auth = async (req, res, next) => {
     }
 };
 
-exports.isDoctor = (req, res, next) => {
-    const token = req.haeders['x-authorization'];
+exports.isDoctor = async (req, res, next) => {
+    const token = req.cookies.authToken;
 
     if (!token) {
-        return res.status(401).json({ message: 'No token' });
+        return res.status(401).json({ error: 'Unothorized' });;
     }
 
     try {
-        const decoded = jwt.verify(token, SECRET);
+        const decoded = await jwt.verify(token, SECRET);
 
         if (decoded.proficiency && decoded.profile === 'doctor') {
-            return next();
+            req.user = decoded;
+            next();
         } else {
             return res.status(403).json({ message: 'Unauthorized access' });
         }

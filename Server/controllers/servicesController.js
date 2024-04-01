@@ -21,15 +21,16 @@ router.get('/all/:id', async (req, res) => {
     }
 });
 
-router.post('/create', async (req, res) => {
+router.post('/create', isDoctor, async (req, res) => {
     try {
         const serviceData = req.body;
-        const user = req.user._id;
+        const user = req.user.id;
 
         await servicesServices.create(serviceData, user);
 
         res.status(200).json({ status: 'Success' });
     } catch (error) {
+        console.error(error)
         res.status(500).json({ error: 'Error creating service' });
     }
 });

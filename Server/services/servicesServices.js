@@ -13,7 +13,7 @@ exports.getAllForDoctor = async (id) => {
 };
 
 exports.create = async (servicesData, userId) => {
-    await Service.create({
+    return await Service.create({
         owner: userId,
         ...servicesData
     });

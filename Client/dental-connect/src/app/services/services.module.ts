@@ -6,6 +6,7 @@ import { SearchServicesComponent } from './search-services/search-services.compo
 import { DetailsServiceComponent } from './details-service/details-service.component';
 import { CreateServiceComponent } from './create-service/create-service.component';
 import { EditServiceComponent } from './edit-service/edit-service.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -19,7 +20,8 @@ import { EditServiceComponent } from './edit-service/edit-service.component';
   ],
   imports: [
     CommonModule,
-    ServicesRoutingModule
+    ServicesRoutingModule,
+    ReactiveFormsModule
   ],
   exports:[
     AllServicesComponent

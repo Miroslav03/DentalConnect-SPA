@@ -18,6 +18,10 @@ const serviceSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    imgURL: {
+        type: String,
+        required: true
+    },
     owner: {
         type: mongoose.Types.ObjectId,
         ref: 'Doctor',
