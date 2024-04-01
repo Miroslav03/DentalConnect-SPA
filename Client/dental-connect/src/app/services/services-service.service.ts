@@ -28,4 +28,8 @@ export class ServicesService {
     editService(name: string, description: string, price: number, duration: number, imgURL: string, serviceId: string) {
         return this.http.put(`http://localhost:3000/services/${serviceId}`, { name, description, price, duration, imgURL }, { withCredentials: true });
     }
+
+    deleteService(serviceId: string) {
+        return this.http.delete(`http://localhost:3000/services/${serviceId}`, { withCredentials: true });
+    }
 }

@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card__title">
     <div class="icon">
-      <a href="#"><i class="fa fa-arrow-left"></i></a>
+      <a routerLink="/services/all"><i class="fa fa-arrow-left"></i></a>
     </div>
     <h3>Dental Connect</h3>
   </div>
@@ -31,7 +31,7 @@
     </div>
     <div class="action">
       <button type="button" *ngIf="isDoctor && isOwner" [routerLink]="['/services/edit', service?._id]">Edit</button>
-      <button type="button" *ngIf="isDoctor  && isOwner">Delete</button>
+      <button type="button" *ngIf="isDoctor  && isOwner" (click)="delete()">Delete</button>
       <button type="button" *ngIf="isUser">Buy</button>
     </div>
   </div>
