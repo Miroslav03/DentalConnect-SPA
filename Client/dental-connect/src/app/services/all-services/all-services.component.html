@@ -1,5 +1,5 @@
-<div class="container">
-    <h1 class="heading">Services</h1>
+<div class="container-service">
+    <h1 *ngIf="showHeading" class="heading">Services</h1>
 
     <div class="box-container">
         <div class="box" *ngFor="let service of services">
@@ -8,6 +8,7 @@
             <p>{{ (service.description.length > 50) ? (service.description | slice:0:20) + '...' :
                 (service.description)}}
             </p>
-            <a [routerLink]="['/services/details', service._id]"  class="btn">Read More</a>
+            <a [routerLink]="['/services/details', service._id]" class="btn">Read More</a>
         </div>
     </div>
+</div>

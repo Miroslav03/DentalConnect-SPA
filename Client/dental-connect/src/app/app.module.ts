@@ -8,6 +8,7 @@ import { UserModule } from './user/user.module';
 import { ServicesModule } from './services/services.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
 
     UserModule,
     ServicesModule,
-    
+
+    FormsModule,
     HttpClientModule,
     AppRoutingModule,
   ],

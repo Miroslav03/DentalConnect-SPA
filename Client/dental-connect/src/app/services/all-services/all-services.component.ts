@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ServicesService } from '../services-service.service';
-import { Subscription } from 'rxjs';
 import { Services } from 'src/app/types/serviceTypes';
 
 @Component({
@@ -9,8 +8,8 @@ import { Services } from 'src/app/types/serviceTypes';
   styleUrls: ['./all-services.component.css']
 })
 export class AllServicesComponent implements OnInit {
-
-  services: Services[] = []
+  @Input() services: Services[] = [];
+  @Input() showHeading = true;
 
   constructor(private servicesService: ServicesService) {
   }

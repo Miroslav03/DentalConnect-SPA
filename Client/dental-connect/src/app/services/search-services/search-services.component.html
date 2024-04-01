@@ -1,25 +1,7 @@
 <div class="container">
-    <input type="text" placeholder="Search...">
+    <input type="text" [(ngModel)]="searchPattern" (input)="filterServices()" placeholder="Search...">
     <div class="search"></div>
 </div>
-
 <div class="container-services">
-    <div class="box-container">
-        <div class="box">
-            <img src="https://mustafaalperkul.com/en/assets/img/9b21d4474be0108de485af7e65960cgi.png">
-            <h3>Teeth Stone Cleaning</h3>
-            <p>Tartars and plaques on the tooth surface are cleaned with the use of various tools during tartar
-                cleaning.</p>
-            <a href="" class="btn">Read More</a>
-        </div>
-        <div class="box">
-            <img src="https://d2jx2rerrg6sh3.cloudfront.net/image-handler/picture/2021/4/shutterstock_56198956.jpg">
-            <h3>Teeth whitening</h3>
-            <p>Laser whitening, also known as power whitening, is another type of teeth whitening system that a
-                dentist can provide.</p>
-            <a href="" class="btn">Read More</a>
-        </div>
-        
-    </div>
-
+    <app-all-services [showHeading]="false" [services]="filteredServices" />
 </div>
