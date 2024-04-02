@@ -14,8 +14,8 @@ router.get('/all', async (req, res) => {
 router.post('/buy/:id', async (req, res) => {
     try {
         const id = req.params.id;
-        const { serviceId } = req.body;
-        await servicesServices.buyService(serviceId, id);
+        const { serviceId, ownerId } = req.body;
+        await servicesServices.buyService(serviceId, id, ownerId);
         res.status(200).json({ status: 'Success' });
     } catch (error) {
         res.status(500).json({ message: 'Server Error' });

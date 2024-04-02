@@ -33,7 +33,6 @@ router.post('/login', async (req, res) => {
         const { email, password } = req.body;
 
         const doctor = await doctorService.login({ email, password });
-
         const user = await userService.login({ email, password });
 
         if (!doctor && !user) {

@@ -73,8 +73,7 @@ export class DetailsServiceComponent implements OnInit {
 
   buy() {
     const userId = this.userService.isLoggedIn().user?._id;
-
-    this.serviceService.buyService(this.serviceId!, userId!).subscribe(() => {
+    this.serviceService.buyService(this.serviceId!, userId!, this.service?.owner._id!).subscribe(() => {
       this.router.navigate(['/services/all']);
     });
   }

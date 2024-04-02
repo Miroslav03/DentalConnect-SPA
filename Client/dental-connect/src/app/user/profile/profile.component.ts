@@ -14,10 +14,11 @@ export class ProfileComponent implements OnInit {
   services: Services[] = [];
   user: UserType | DoctorType | null = null;
   userType: string | undefined = '';
-  
+  patients: UserType[] = [];
+  proficiency: string | undefined = ''
+
   constructor(private userService: UserService, private serviceServices: ServicesService) {
   }
-
 
   get isDoctor(): boolean | undefined {
     if (this.userService.isLoggedIn().userType === 'doctor') {
@@ -38,8 +39,11 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getUser().subscribe((user) => {
       this.user = user;
+
       if (this.user.hasOwnProperty('proficiency')) {
         this.userType = 'doctor';
+        this.patients = (this.user as DoctorType).patients;
+        this.proficiency = (user as DoctorType).proficiency;
       } else {
         this.userType = 'user';
       }

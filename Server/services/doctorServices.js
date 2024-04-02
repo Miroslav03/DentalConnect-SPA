@@ -23,12 +23,11 @@ exports.register = async (doctorData) => {
 
 exports.login = async (doctorData) => {
     try {
-        const doctor = await Doctor.findOne({ email: doctorData.email });
+        const doctor = await Doctor.findOne({ email: doctorData.email }).populate('patients');
 
         if (!doctor) {
             return null;
         }
-
         const isValid = await bcrypt.compare(doctorData.password, doctor.password);
 
         if (!isValid) {
@@ -42,7 +41,7 @@ exports.login = async (doctorData) => {
             accessToken: doctorToken,
             username: doctor.username,
             email: doctor.email,
-            proficiency: doctor.proficiency
+            proficiency: doctor.proficiency,
         }
     } catch (error) {
         console.error(error.message)
@@ -51,5 +50,5 @@ exports.login = async (doctorData) => {
 };
 
 exports.getDoctorById = async (doctorId) => {
-    return await Doctor.findById(doctorId).select('-password')
+    return await Doctor.findById(doctorId).select('-password').populate('patients')
 }

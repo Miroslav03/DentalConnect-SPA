@@ -1,22 +1,17 @@
 <div class="card-container">
     <img class="round" *ngIf="isDoctor" src="assets/img/doctor img.png" alt="user" />
     <img class="round" *ngIf="isUser" src="assets/img/user img.png" alt="user" />
-    <h3>Dr.Ricky Park</h3>
-    <h6>Orthodont</h6>
-    <div class="patients">
+    <h3 *ngIf="isDoctor">Dr.{{user?.username}}</h3>
+    <h6 *ngIf="isDoctor">{{proficiency}}</h6>
+    <h6 *ngIf="isUser">{{user?.username}}</h6>
+    <div *ngIf="isDoctor" class="patients">
         <h6>Patients</h6>
-        <ul>
-            <li>Ivan</li>
-            <li>Miroslav</li>
-            <li>Kaloyan</li>
-            <li>Asen</li>
-            <li>JavaScript</li>
-            <li>React</li>
-            <li>Node</li>
+        <ul *ngFor="let patient of patients">
+            <li>{{patient.username}}</li>
         </ul>
     </div>
 </div>
 
 <div class="container-services">
-    <app-all-services [showHeading]="false" [services]="services"/>
+    <app-all-services [showHeading]="false" [services]="services" />
 </div>

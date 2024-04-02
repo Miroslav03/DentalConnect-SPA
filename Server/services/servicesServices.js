@@ -1,5 +1,5 @@
 const Service = require('../model/Service');
-
+const Doctor = require('../model/Doctor')
 
 exports.getAll = () => Service.find().populate('signed');
 
@@ -29,10 +29,11 @@ exports.create = async (servicesData, userId) => {
     });
 };
 
-exports.buyService = async (idService, idUser) => {
-    const service = await this.getOne(idService);
-    service.signed.push(idUser);
-    return service.save();
+exports.buyService = async (idService, idUser, idDoctor) => {
+    await Service.updateOne({ _id: idService }, { $push: { signed: idUser } });
+    await Doctor.updateOne({ _id: idDoctor }, { $push: { patients: idUser } });
+
+    return;
 }
 
 exports.getOne = (serviceId) => Service.findById(serviceId).populate('owner').populate('signed');

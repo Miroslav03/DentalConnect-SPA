@@ -41,8 +41,8 @@ export class ServicesService {
         return this.http.get(`http://localhost:3000/services/user/all/${userId}`, { withCredentials: true });
     }
 
-    buyService(serviceId: string, userId: string) {
-        return this.http.post(`http://localhost:3000/services/buy/${userId}`, { serviceId }, { withCredentials: true });
+    buyService(serviceId: string, userId: string, ownerId: string) {
+        return this.http.post(`http://localhost:3000/services/buy/${userId}`, { serviceId, ownerId }, { withCredentials: true });
 
     }
 }
