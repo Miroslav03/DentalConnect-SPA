@@ -32,7 +32,7 @@
     <div class="action">
       <button type="button" *ngIf="isDoctor && isOwner" [routerLink]="['/services/edit', service?._id]">Edit</button>
       <button type="button" *ngIf="isDoctor  && isOwner" (click)="delete()">Delete</button>
-      <button type="button" *ngIf="isUser">Buy</button>
+      <button type="button" *ngIf="isUser && !isPurchesed" (click)="buy()">Buy</button>
     </div>
   </div>
 </div>

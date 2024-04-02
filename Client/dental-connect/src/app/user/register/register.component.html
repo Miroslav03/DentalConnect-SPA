@@ -16,7 +16,7 @@
             </ng-container>
             <div class="input-field">
                 <i class="fa-solid fa-envelope"></i>
-                <input type="email" placeholder="email" class="input-error"  formControlName="email">
+                <input type="email" placeholder="email" class="input-error" formControlName="email">
             </div>
             <ng-container *ngIf="form.get('email')?.touched">
                 <p class="error" *ngIf="form.get('email')?.errors?.['required']">
@@ -65,6 +65,9 @@
         <p id="doctor-text">Register as a doctor?
             <input id="doctor-input" type="checkbox" id="doctor" (change)="toogleDoctorField($event)">
         </p>
+        <ng-container *ngIf="form.errors?.['registerError']">
+            <p class="error">{{ form.errors?.['registerError'] }}</p>
+        </ng-container>
         <p>Already have an account?<a routerLink="/user/login">Sign In!</a></p>
         <div class="btn-field">
             <button type="submit">Sign Up</button>

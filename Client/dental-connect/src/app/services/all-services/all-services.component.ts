@@ -10,6 +10,8 @@ import { Services } from 'src/app/types/serviceTypes';
 export class AllServicesComponent implements OnInit {
   @Input() services: Services[] = [];
   @Input() showHeading = true;
+  @Input() showSubscribtions = false;
+  @Input() showYourServices = false;
 
   constructor(private servicesService: ServicesService) {
   }

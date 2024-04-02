@@ -11,10 +11,31 @@ router.get('/all', async (req, res) => {
     }
 });
 
-router.get('/all/:id', async (req, res) => {
+router.post('/buy/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const { serviceId } = req.body;
+        await servicesServices.buyService(serviceId, id);
+        res.status(200).json({ status: 'Success' });
+    } catch (error) {
+        res.status(500).json({ message: 'Server Error' });
+    }
+});
+
+router.get('/doctor/all/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const services = await servicesServices.getAllForDoctor(id);
+        res.status(200).json(services);
+    } catch (error) {
+        res.status(500).json({ message: 'Server Error' });
+    }
+});
+
+router.get('/user/all/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const services = await servicesServices.getAllForUser(id);
         res.status(200).json(services);
     } catch (error) {
         res.status(500).json({ message: 'Server Error' });

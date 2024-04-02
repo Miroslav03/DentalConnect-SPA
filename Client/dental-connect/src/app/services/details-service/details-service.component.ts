@@ -3,6 +3,7 @@ import { ServicesService } from '../services-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Services } from 'src/app/types/serviceTypes';
 import { UserService } from 'src/app/user/user-service.service';
+import { UserType } from 'src/app/types/authTypes';
 
 @Component({
   selector: 'app-details-service',
@@ -13,6 +14,7 @@ export class DetailsServiceComponent implements OnInit {
 
   serviceId: string | null = '';
   service: Services | null = null;
+  userId: string | null = '';
 
   constructor(
     private serviceService: ServicesService,
@@ -45,16 +47,34 @@ export class DetailsServiceComponent implements OnInit {
     }
   }
 
+  get isPurchesed(): boolean | undefined {
+    const userId = this.userService.isLoggedIn().user?._id;
+
+    if (userId && this.service?.signed.some(user => userId === user._id)) {
+      return true;
+    } else {
+      return undefined;
+    }
+  }
+
   ngOnInit(): void {
     this.serviceId = this.activeRoute.snapshot.paramMap.get("id");
     this.serviceService.getOne(this.serviceId!).subscribe((service) => {
       this.service = service;
     })
+
   }
 
   delete() {
-    console.log(this.serviceId);
-    this.serviceService.deleteService(this.serviceId!).subscribe(()=>{
+    this.serviceService.deleteService(this.serviceId!).subscribe(() => {
+      this.router.navigate(['/services/all']);
+    });
+  }
+
+  buy() {
+    const userId = this.userService.isLoggedIn().user?._id;
+
+    this.serviceService.buyService(this.serviceId!, userId!).subscribe(() => {
       this.router.navigate(['/services/all']);
     });
   }

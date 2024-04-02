@@ -61,6 +61,10 @@ export class RegisterComponent {
 
       this.userService.registerUser(username!, email!, password!).subscribe(() => {
         this.router.navigate(['/services/all']);
+      }, (error) => {
+        this.form.setErrors({
+          'registerError': 'User with this data exists!'
+        })
       });
     }
   }

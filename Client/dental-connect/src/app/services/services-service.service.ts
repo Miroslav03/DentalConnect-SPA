@@ -32,4 +32,17 @@ export class ServicesService {
     deleteService(serviceId: string) {
         return this.http.delete(`http://localhost:3000/services/${serviceId}`, { withCredentials: true });
     }
+
+    getAllForDoctor(doctorId: string) {
+        return this.http.get(`http://localhost:3000/services/doctor/all/${doctorId}`, { withCredentials: true });
+    }
+
+    getAllForUser(userId: string) {
+        return this.http.get(`http://localhost:3000/services/user/all/${userId}`, { withCredentials: true });
+    }
+
+    buyService(serviceId: string, userId: string) {
+        return this.http.post(`http://localhost:3000/services/buy/${userId}`, { serviceId }, { withCredentials: true });
+
+    }
 }
