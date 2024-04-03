@@ -18,9 +18,11 @@ Dental Connect is a Single Page Application (SPA) where users can register as ei
 ![image](https://github.com/Miroslav03/DentalConnect-SPA/assets/123780218/89799693-d52c-4b4c-b07a-803e1ccd4ec5)
 
 -Profile
+
 ![image](https://github.com/Miroslav03/DentalConnect-SPA/assets/123780218/bf504265-4d28-4aa4-b800-3ef459d6b6c3)
 
 -Details
+
 ![image](https://github.com/Miroslav03/DentalConnect-SPA/assets/123780218/873034fb-5a62-4728-afa5-52280d781f7d)
 
 ## Prerequisites
