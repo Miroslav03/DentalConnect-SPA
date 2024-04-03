@@ -5,6 +5,7 @@ import { SearchServicesComponent } from "./search-services/search-services.compo
 import { CreateServiceComponent } from "./create-service/create-service.component";
 import { DetailsServiceComponent } from "./details-service/details-service.component";
 import { EditServiceComponent } from "./edit-service/edit-service.component";
+import { ThemeGuard } from "../guards/theme.guard";
 
 
 const routes: Routes = [
@@ -12,9 +13,9 @@ const routes: Routes = [
         path: 'services', children: [
             { path: 'all', component: AllServicesComponent },
             { path: 'search', component: SearchServicesComponent },
-            { path: 'create', component: CreateServiceComponent },
+            { path: 'create', component: CreateServiceComponent, canActivate: [ThemeGuard] },
             { path: 'details/:id', component: DetailsServiceComponent },
-            { path: 'edit/:id', component: EditServiceComponent },
+            { path: 'edit/:id', component: EditServiceComponent, canActivate: [ThemeGuard] },
         ]
     }
 ]

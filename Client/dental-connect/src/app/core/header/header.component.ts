@@ -31,12 +31,13 @@ export class HeaderComponent {
   }
 
 
+
   logout() {
     this.userService.logout().subscribe({
       next: () => {
         this.router.navigate(['/user/login']);
       },
-      error:()=>{
+      error: () => {
         this.router.navigate(['/user/login']);
       }
     })

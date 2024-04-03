@@ -22,7 +22,8 @@
       </div>
       <span class="stock"><i class="fa-regular fa-clock"></i>Duration: {{service?.duration}}h</span>
       <div class="reviews">
-        <span *ngFor="let person of service?.signed">{{person}}</span>
+        <span>Bought by:</span>
+        <span *ngFor="let person of service?.signed">{{person.username}},</span>
       </div>
     </div>
   </div>

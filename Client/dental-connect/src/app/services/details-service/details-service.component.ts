@@ -3,7 +3,6 @@ import { ServicesService } from '../services-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Services } from 'src/app/types/serviceTypes';
 import { UserService } from 'src/app/user/user-service.service';
-import { UserType } from 'src/app/types/authTypes';
 
 @Component({
   selector: 'app-details-service',
@@ -60,7 +59,7 @@ export class DetailsServiceComponent implements OnInit {
   ngOnInit(): void {
     this.serviceId = this.activeRoute.snapshot.paramMap.get("id");
     this.serviceService.getOne(this.serviceId!).subscribe((service) => {
-      this.service = service;
+      this.service = service;      
     })
 
   }
