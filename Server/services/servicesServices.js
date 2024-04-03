@@ -31,7 +31,7 @@ exports.create = async (servicesData, userId) => {
 
 exports.buyService = async (idService, idUser, idDoctor) => {
     await Service.updateOne({ _id: idService }, { $push: { signed: idUser } });
-    await Doctor.updateOne({ _id: idDoctor }, { $push: { patients: idUser } });
+    await Doctor.updateOne({ _id: idDoctor, patients: { $ne: idUser } }, { $addToSet: { patients: idUser } });
 
     return;
 }
