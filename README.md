@@ -9,6 +9,14 @@ Dental Connect is a Single Page Application (SPA) where users can register as ei
 - Service Purchase as a User
 - Authentication
 
+## Pictures of the project
+-Home
+![image](https://github.com/Miroslav03/DentalConnect-SPA/assets/123780218/21121731-d766-4096-a315-ef7ccc960639)
+-Search
+![image](https://github.com/Miroslav03/DentalConnect-SPA/assets/123780218/89799693-d52c-4b4c-b07a-803e1ccd4ec5)
+-Profile
+![image](https://github.com/Miroslav03/DentalConnect-SPA/assets/123780218/bf504265-4d28-4aa4-b800-3ef459d6b6c3)
+
 ## Prerequisites
 Before you begin, ensure you have met the following requirements:
 - Node.js and npm installed
