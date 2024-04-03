@@ -15,9 +15,9 @@ Before you begin, ensure you have met the following requirements:
 - Angular CLI installed (`npm install -g @angular/cli`)
   
 ## Built with
--JavaScript, TypeScript, HTML, CSS, SCSS
--Angular
--Node.js, Express.js and MongoDB
+* JavaScript, TypeScript, HTML, CSS, SCSS
+* Angular
+* Node.js, Express.js and MongoDB
 
 Run Application
  * Open terminal:
