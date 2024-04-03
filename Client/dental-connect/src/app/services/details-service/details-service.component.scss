@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:500');
+
 .card {
   box-shadow: 0 6px 6px rgba(#000, 0.3);
   transition: 200ms;
-  background: #081c29;
+  background: #010125;
   max-width: 720px;
   margin: 5% auto;
-  filter: drop-shadow(0 0 25px white);
+  filter:
+    drop-shadow(0 0 10px #fa007e) drop-shadow(0 0 20px #010125) drop-shadow(0 0 30px white);
+  animation: smoke 8s infinite linear;
 
   .card__title {
     display: flex;
@@ -25,7 +28,7 @@
 
     .icon {
       flex: 1 0 10px;
-      background: #00adf4;
+      background: #fa007e;
       color: #fff;
       padding: 10px 10px;
       transition: 200ms;
@@ -71,7 +74,7 @@
           font-family: "Montserrat", sans-serif;
           font-size: 26px;
           text-transform: uppercase;
-          color: #00adf4;
+          color: #fa007e;
           font-weight: 300;
           margin-bottom: 5px;
         }
@@ -105,7 +108,7 @@
         font-weight: 300;
         line-height: 27px;
         font-size: 16px;
-        color: #00adf4;
+        color: #fa007e;
       }
     }
 
@@ -134,7 +137,7 @@
         font-family: "Montserrat", sans-serif;
         font-size: 14px;
         margin-left: 5px;
-        color: #00adf4;
+        color: #fa007e;
       }
     }
   }
@@ -154,8 +157,8 @@
       left: 40px;
       width: calc(100% - 40px);
       height: 3px;
-      background: #00adf4;
-      background: linear-gradient(to right, #00adf4 0%, #00adf4 20%, #ddd 20%, #ddd 100%);
+      background: #fa007e;
+      background: linear-gradient(to right, #fa007e 0%, #fa007e 20%, #fa007e 20%, #ddd 100%);
     }
 
     .recommend {
@@ -167,7 +170,7 @@
         text-transform: uppercase;
         font-weight: 600;
         font-size: 14px;
-        color: #00adf4;
+        color: #fa007e;
       }
 
       h3 {
@@ -176,14 +179,13 @@
         font-family: "Montserrat", sans-serif;
         font-weight: 600;
         text-transform: uppercase;
-        color: #00adf4;
+        color: #fa007e;
       }
     }
 
     .action {
       button {
         cursor: pointer;
-        border: 1px solid #ffffff;
         padding: 14px 30px;
         border-radius: 200px;
         color: #081c29;
@@ -193,15 +195,43 @@
         transition: 200ms;
 
         &:hover {
-          background: #fff;
-          box-shadow: 0 10px 15px rgb(255, 255, 255);
           transform: scale(1.03);
-          letter-spacing: 1px;
+          background-color: #fa007e;
+          border-color: #fa007e;
+          color: #ffffff;
         }
-        & + button {
-          margin-left: 10px; /* Add this line to add spacing between buttons */
+
+        &+button {
+          margin-left: 10px;
         }
       }
     }
+  }
+}
+
+@keyframes smoke {
+  0% {
+    filter:
+      drop-shadow(0 0 10px #fa007e) drop-shadow(0 0 20px #010125) drop-shadow(0 0 30px white);
+  }
+
+  25% {
+    filter:
+      drop-shadow(0 0 10px white) drop-shadow(0 0 20px #fa007e) drop-shadow(0 0 30px #010125);
+  }
+
+  50% {
+    filter:
+      drop-shadow(0 0 10px #010125) drop-shadow(0 0 20px white) drop-shadow(0 0 30px #fa007e);
+  }
+
+  75% {
+    filter:
+      drop-shadow(0 0 10px #fa007e) drop-shadow(0 0 20px #010125) drop-shadow(0 0 30px white);
+  }
+
+  100% {
+    filter:
+      drop-shadow(0 0 10px white) drop-shadow(0 0 20px #fa007e) drop-shadow(0 0 30px #010125);
   }
 }

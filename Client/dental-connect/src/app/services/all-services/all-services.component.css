@@ -33,10 +33,15 @@
 
 .container-service .box-container .box {
     border-radius: 5px;
-    background: #081c29;
+    background-color: #010125;
+
     text-align: center;
     padding: 30px 20px;
-    filter: drop-shadow(0 0 25px white);
+    filter:
+        drop-shadow(0 0 10px #fa007e)
+        drop-shadow(0 0 20px #010125)
+        drop-shadow(0 0 30px white);
+    animation: smoke 8s infinite linear;
 }
 
 .container-service .box-container .box img {
@@ -51,7 +56,7 @@
 }
 
 .container-service .box-container .box p {
-    color: #01abf0;
+    color: #fa007e;
     font-size: 15px;
     line-height: 1.8;
 }
@@ -72,13 +77,46 @@
 }
 
 .container-service .box-container .box .btn:hover {
-    box-shadow: 0 10px 15px rgb(255, 255, 255);
-    transform: scale(1.03);    
+    transform: scale(1.03);
+    background-color: #fa007e;
+    color: #ffffff;
+
 }
 
-@media (max-width:768px){
-    .container{
+@keyframes smoke {
+    0% {
+        filter: 
+            drop-shadow(0 0 10px #fa007e)
+            drop-shadow(0 0 20px #010125)
+            drop-shadow(0 0 30px white);
+    }
+    25% {
+        filter: 
+            drop-shadow(0 0 10px white)
+            drop-shadow(0 0 20px #fa007e)
+            drop-shadow(0 0 30px #010125);
+    }
+    50% {
+        filter: 
+            drop-shadow(0 0 10px #010125)
+            drop-shadow(0 0 20px white)
+            drop-shadow(0 0 30px #fa007e);
+    }
+    75% {
+        filter: 
+            drop-shadow(0 0 10px #fa007e)
+            drop-shadow(0 0 20px #010125)
+            drop-shadow(0 0 30px white);
+    }
+    100% {
+        filter: 
+            drop-shadow(0 0 10px white)
+            drop-shadow(0 0 20px #fa007e)
+            drop-shadow(0 0 30px #010125);
+    }
+}
+@media (max-width:768px) {
+    .container {
         padding: 20px;
     }
 }
-

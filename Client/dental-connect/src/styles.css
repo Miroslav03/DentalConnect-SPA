@@ -1,4 +1,11 @@
 body {
+    background-image: url('assets/img/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
     margin: 0;
-    background-color: #081c29;
+    padding: 0;
+    height: 100vh; /* Full viewport height */
+
 }

@@ -4,7 +4,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0%;
-    background-color:#081c29;
+    background-color:transparent;
 }
 
 li,
@@ -43,15 +43,16 @@ header {
 }
 
 .nav_links li a:hover {
-    color: #00adf4;
+    color: #fa007e;
 }
 
 
 button {
     padding: 9px 25px;
-    background-color: #00adf4;
+    background-color: #940054;
     border: none;
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
 }
+

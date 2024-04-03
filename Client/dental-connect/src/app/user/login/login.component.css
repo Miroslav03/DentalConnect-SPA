@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:500');
 
+
 .form-box {
     width: 90%;
     max-width: 400px;
@@ -7,11 +8,16 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #081c29;
+    background: #010125;
     padding: 50px 60px 70px;
     text-align: center;
     border-radius: 10px;
-    filter: drop-shadow(0 0 25px white);
+    filter:
+    drop-shadow(0 0 10px #fa007e)
+    drop-shadow(0 0 20px #010125)
+    drop-shadow(0 0 30px white);
+animation: smoke 8s infinite linear;
+
 }
 
 .form-box h1 {
@@ -21,22 +27,11 @@
     color: white;
     position: relative;
     filter: drop-shadow(0 0 15px white);
-}
 
-.form-box h1 ::after {
-    content: '';
-    width: 30px;
-    height: 4px;
-    border-radius: 3px;
-    background-color: #3c00a0;
-    position: absolute;
-    bottom: -12px;
-    left: 50%;
-    transform: translateX(-50%);
 }
 
 .input-field {
-    background: #00adf4;
+    background: #940054;
     margin: 15px 0;
     border-radius: 3px;
     display: flex;
@@ -48,9 +43,14 @@ input {
     background: transparent;
     border: 0;
     outline: 0;
-    padding: 18px 15px;   
+    padding: 18px 15px;
+    color: white;
 }
 
+input::placeholder {
+    color: white;
+    opacity: 1;
+}
 .input-field i {
     margin-left: 15px;
     color: #ffffff;
@@ -59,7 +59,7 @@ input {
 form p {
     text-align: center;
     font-size: 13px;
-    color: #00adf4;
+    color: #940054;
     font-family: "Montserrat", sans-serif;
 }
 
@@ -83,13 +83,15 @@ form p a {
     font-size: 11px;
 }
 
-.btn-field button:hover {
-    letter-spacing: 0.5px;
-
+#doctor-text {
+    color: white
 }
 
-.btn-field button:hover {
-    box-shadow: 0 10px 15px rgb(255, 255, 255);
+.btn-field :hover {
+    transform: scale(1.03)!important;
+    background-color: #fa007e;
+    color: #ffffff;
+
 }
 
 
@@ -99,4 +101,37 @@ form p a {
     color: rgb(255, 255, 255)!important ;
     filter: drop-shadow(0 0 25px white) !important;
     padding-top: 0;
+}
+
+@keyframes smoke {
+    0% {
+        filter: 
+            drop-shadow(0 0 10px #fa007e)
+            drop-shadow(0 0 20px #010125)
+            drop-shadow(0 0 30px white);
+    }
+    25% {
+        filter: 
+            drop-shadow(0 0 10px white)
+            drop-shadow(0 0 20px #fa007e)
+            drop-shadow(0 0 30px #010125);
+    }
+    50% {
+        filter: 
+            drop-shadow(0 0 10px #010125)
+            drop-shadow(0 0 20px white)
+            drop-shadow(0 0 30px #fa007e);
+    }
+    75% {
+        filter: 
+            drop-shadow(0 0 10px #fa007e)
+            drop-shadow(0 0 20px #010125)
+            drop-shadow(0 0 30px white);
+    }
+    100% {
+        filter: 
+            drop-shadow(0 0 10px white)
+            drop-shadow(0 0 20px #fa007e)
+            drop-shadow(0 0 30px #010125);
+    }
 }

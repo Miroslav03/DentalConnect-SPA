@@ -30,15 +30,75 @@
     overflow: hidden;
     color: white;
     transition: 1s ease-in-out;
-}
-
-.content :hover::before {
-    filter: drop-shadow(0 0 25px #00adf4)
+    transition: all 2s ease-in-out; /* Extended transition duration */
+    animation: smoke 8s infinite linear; /* Extended animation duration */
 }
 
 
 .content p {
-    color: #06abf8;
-    filter: drop-shadow(0 0 15px #ffffff)
+    color: #dedede;
 
+}
+
+
+@keyframes smoke {
+    0% {
+        filter: 
+            drop-shadow(0 0 20px #010125)
+            drop-shadow(0 0 30px white);
+    }
+    25% {
+        filter: 
+            drop-shadow(0 0 10px white)
+            drop-shadow(0 0 20px #fa007e)
+            drop-shadow(0 0 30px #010125);
+    }
+    50% {
+        filter: 
+            drop-shadow(0 0 10px #010125)
+            drop-shadow(0 0 20px white)
+            drop-shadow(0 0 30px #fa007e);
+    }
+    75% {
+        filter: 
+            drop-shadow(0 0 10px #fa007e)
+            drop-shadow(0 0 20px #010125)
+            drop-shadow(0 0 30px white);
+    }
+    100% {
+        filter: 
+            drop-shadow(0 0 10px white)
+            drop-shadow(0 0 20px #fa007e)
+            drop-shadow(0 0 30px #010125);
+    }
+}
+
+@media (max-width: 767px) {
+    .content {
+        font-size: 24px;
+    }
+
+    .content h1 {
+        font-size: 4rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .content {
+        font-size: 28px;
+    }
+
+    .content h1 {
+        font-size: 4.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .content {
+        font-size: 30px;
+    }
+
+    .content h1 {
+        font-size: 5rem;
+    }
 }
